@@ -2,9 +2,13 @@
 {
     public class DiamondKata
     {
-        public string CreateDiamond(char letter)
+        public static string CreateDiamond(char letter)
         {
-            throw new NotImplementedException();
+            if ((letter >= 'a' && letter <= 'z' || letter >= 'A' && letter <= 'Z') is false)
+            {
+                throw new ArgumentException("Argument must be a letter", nameof(letter));
+            }
+            throw new NotImplementedException("CreateDiamond is not implemented yet");
         }
     }
 }
