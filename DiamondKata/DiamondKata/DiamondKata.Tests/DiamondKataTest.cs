@@ -25,15 +25,33 @@
         [Test]
         public void TestKataWorksWithSecondAlphabetUppercaseLetter()
         {
+            var extraCharacter = '_';
             var result = DiamondKata.CreateDiamond('B');
-            Assert.That(result, Is.EqualTo("_A_\r\nB_B\r\n_A_"));
+            var lines = result.Split("\r\n");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(lines[0], Is.EqualTo(new string(extraCharacter, 1) + "A" + new string(extraCharacter, 1)));
+                Assert.That(lines[1], Is.EqualTo("B" + new string(extraCharacter, 1) + "B"));
+            });
         }
 
         [Test]
         public void TestKataWorksWithThirdAlphabetUppercaseLetter()
         {
+            var extraCharacter = '_';
             var result = DiamondKata.CreateDiamond('C');
-            Assert.That(result, Is.EqualTo("__A__\r\n_B_B_\r\nC___C\r\n_B_B_\r\n__A__"));
+            var lines = result.Split("\r\n");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(lines[0], Is.EqualTo(new string(extraCharacter, 2) + "A" + new string(extraCharacter, 2)));
+                Assert.That(lines[1], Is.EqualTo(new string(extraCharacter, 1) + "B" + new string(extraCharacter, 1) + "B" + new string(extraCharacter, 1)));
+                Assert.That(lines[2], Is.EqualTo("C" + new string(extraCharacter, 3) + "C"));
+                Assert.That(lines[0], Is.EqualTo(new string(extraCharacter, 2) + "A" + new string(extraCharacter, 2)));
+                Assert.That(lines[1], Is.EqualTo(new string(extraCharacter, 1) + "B" + new string(extraCharacter, 1) + "B" + new string(extraCharacter, 1)));
+                Assert.That(lines[2], Is.EqualTo("C" + new string(extraCharacter, 3) + "C"));
+            });
         }
 
         [Test]
@@ -51,6 +69,7 @@
         [Test]
         public void TestKataWorksWithLastAlphabetUppercaseLetter()
         {
+            var extraCharacter = '_';
             var result = DiamondKata.CreateDiamond('Z');
             var lines = result.Split("\r\n");
 
@@ -60,11 +79,11 @@
             Assert.Multiple(() =>
             {
                 // Verify the first and last rows contain only 'A' with 25 underscores on each side
-                Assert.That(lines[0], Is.EqualTo(new string('_', 25) + "A" + new string('_', 25)));
-                Assert.That(lines[^1], Is.EqualTo(new string('_', 25) + "A" + new string('_', 25)));
+                Assert.That(lines[0], Is.EqualTo(new string(extraCharacter, 25) + "A" + new string(extraCharacter, 25)));
+                Assert.That(lines[^1], Is.EqualTo(new string(extraCharacter, 25) + "A" + new string(extraCharacter, 25)));
 
                 // Verify the middle row contains 'Z' with no underscores between the letters
-                Assert.That(lines[25], Is.EqualTo("Z" + new string('_', 49) + "Z"));
+                Assert.That(lines[25], Is.EqualTo("Z" + new string(extraCharacter, 49) + "Z"));
             });
 
             // Verify symmetry: each row matches its corresponding row from the bottom
