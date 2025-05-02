@@ -5,8 +5,14 @@
         [Test]
         public void TestInputAcceptsOnlyLetter()
         {
-            var diamond = new DiamondKata();
             Assert.Throws<ArgumentException>(() => DiamondKata.CreateDiamond('1'));
+        }
+
+        [Test]
+        public void TestKataWorksWithLetterA()
+        {
+            var result = DiamondKata.CreateDiamond('A');
+            Assert.That(result, Is.EqualTo("A"));
         }
     }
 }

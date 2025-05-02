@@ -1,6 +1,6 @@
 ﻿namespace DiamondKata
 {
-    public class DiamondKata
+    public static class DiamondKata
     {
         public static string CreateDiamond(char letter)
         {
