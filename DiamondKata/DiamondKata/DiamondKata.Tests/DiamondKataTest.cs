@@ -21,5 +21,12 @@
             var result = DiamondKata.CreateDiamond('a');
             Assert.That(result, Is.EqualTo("A"));
         }
+
+        [Test]
+        public void TestKataWorksWithSecondAlphabetUppercaseLetter()
+        {
+            var result = DiamondKata.CreateDiamond('B');
+            Assert.That(result, Is.EqualTo("_A_\r\nB_B\r\n_A_"));
+        }
     }
 }
