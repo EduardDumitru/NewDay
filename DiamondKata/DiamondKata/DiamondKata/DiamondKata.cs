@@ -8,6 +8,10 @@
             {
                 throw new ArgumentException("Argument must be a letter", nameof(letter));
             }
+            if (letter == 'A')
+            {
+                return "A";
+            }
             throw new NotImplementedException("CreateDiamond is not implemented yet");
         }
     }

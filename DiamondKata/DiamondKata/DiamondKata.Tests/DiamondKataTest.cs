@@ -9,9 +9,16 @@
         }
 
         [Test]
-        public void TestKataWorksWithLetterA()
+        public void TestKataWorksWithFirstAlphabetUppercaseLetter()
         {
             var result = DiamondKata.CreateDiamond('A');
+            Assert.That(result, Is.EqualTo("A"));
+        }
+
+        [Test]
+        public void TestKataWorksWithFirstAlphabetLowercaseLetter()
+        {
+            var result = DiamondKata.CreateDiamond('a');
             Assert.That(result, Is.EqualTo("A"));
         }
     }
